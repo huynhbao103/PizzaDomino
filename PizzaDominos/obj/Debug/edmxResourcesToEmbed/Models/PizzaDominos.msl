@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PizzaDBModelStoreContainer" CdmEntityContainer="PizzaDBEntities1">
+    <EntitySetMapping Name="Bases">
+      <EntityTypeMapping TypeName="PizzaDBModel.Base">
+        <MappingFragment StoreEntitySet="Base">
+          <ScalarProperty Name="BaseID" ColumnName="BaseID" />
+          <ScalarProperty Name="BaseName" ColumnName="BaseName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="PizzaDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CatID" ColumnName="CatID" />
+          <ScalarProperty Name="CateName" ColumnName="CateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="PizzaDBModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CusPhone" ColumnName="CusPhone" />
+          <ScalarProperty Name="CusPassword" ColumnName="CusPassword" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="CusEmail" ColumnName="CusEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fillings">
+      <EntityTypeMapping TypeName="PizzaDBModel.Filling">
+        <MappingFragment StoreEntitySet="Filling">
+          <ScalarProperty Name="FillingID" ColumnName="FillingID" />
+          <ScalarProperty Name="FillingName" ColumnName="FillingName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="PizzaDBModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="CusPhone" ColumnName="CusPhone" />
+          <ScalarProperty Name="AddressDeliverryID" ColumnName="AddressDeliverryID" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="PizzaDBModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="ProDeID" ColumnName="ProDeID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="BaseID" ColumnName="BaseID" />
+          <ScalarProperty Name="ToppingID" ColumnName="ToppingID" />
+          <ScalarProperty Name="RimID" ColumnName="RimID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProDetails">
+      <EntityTypeMapping TypeName="PizzaDBModel.ProDetail">
+        <MappingFragment StoreEntitySet="ProDetail">
+          <ScalarProperty Name="ProDeID" ColumnName="ProDeID" />
+          <ScalarProperty Name="ProID" ColumnName="ProID" />
+          <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="RemainQuantity" ColumnName="RemainQuantity" />
+          <ScalarProperty Name="SoldQuantity" ColumnName="SoldQuantity" />
+          <ScalarProperty Name="ViewQuantity" ColumnName="ViewQuantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="PizzaDBModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProID" ColumnName="ProID" />
+          <ScalarProperty Name="ProName" ColumnName="ProName" />
+          <ScalarProperty Name="CatID" ColumnName="CatID" />
+          <ScalarProperty Name="FillingID" ColumnName="FillingID" />
+          <ScalarProperty Name="ProImage" ColumnName="ProImage" />
+          <ScalarProperty Name="NameDecription" ColumnName="NameDecription" />
+          <ScalarProperty Name="Thumnail" ColumnName="Thumnail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rims">
+      <EntityTypeMapping TypeName="PizzaDBModel.Rim">
+        <MappingFragment StoreEntitySet="Rim">
+          <ScalarProperty Name="RimID" ColumnName="RimID" />
+          <ScalarProperty Name="RimName" ColumnName="RimName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sizes">
+      <EntityTypeMapping TypeName="PizzaDBModel.Size">
+        <MappingFragment StoreEntitySet="Size">
+          <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+          <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PizzaDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Toppings">
+      <EntityTypeMapping TypeName="PizzaDBModel.Topping">
+        <MappingFragment StoreEntitySet="Topping">
+          <ScalarProperty Name="ToppingID" ColumnName="ToppingID" />
+          <ScalarProperty Name="ToppingName" ColumnName="ToppingName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PizzaDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

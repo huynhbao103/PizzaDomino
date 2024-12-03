@@ -1,0 +1,427 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Pizza Ngon, Mì Ý &amp; Món Ăn Phụ  - Domino's Pizza Việt Nam</title>
+    <link rel="icon" type="images/x-icon" href="~/Content/images/img/domino.svg" />
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/0c86a0aecc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script>
+    var cartUrl = "@Url.Action("Index", "Cart")";
+    </script>
+
+
+</head>
+<body>
+    <!-- The Modal DK -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 800px; max-height: 354px;">
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="Modal">
+                    <div class="Modal-pizza">
+                        <img src="~/Content/images/img/anh1.png" alt="pizza">
+                    </div>
+
+                    <div id="formContainer">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                        <!-- <span  onclick="document.getElementById('myModal').style.display ='none';" class="w3-button w3-teal w3-xlarge">×</span> -->
+
+                        <div class="form">
+
+                            <div class="loginLink">
+                                <div id="DN">
+                                    <a onclick="changeColor1('DN');switchForm();">Đăng Nhập</a>
+                                </div>
+                                <div id="DK">
+                                    <a onclick="changeColor1('DK');switchForm();">Tạo Tài khoản</a>
+                                </div>
+                            </div>
+                            <!-- form ĐN -->
+                            <form id="loginForm">
+                                <div class="inputform">
+                                    <h4>Email</h4>
+                                    <input type="email" id="email" placeholder="Nhập email của bạn"><br>
+                                    <h4>Mật Khẩu</h4>
+                                    <input type="password" id="password" placeholder="Nhập mật khẩu của bạn"><br>
+
+                                    <button class="btnformDN" type="submit">Đăng Nhập</button>
+                                </div>
+                            </form>
+
+
+
+                            <!-- Form ĐK -->
+                            <div id="registerForm" style="display: none;">
+                                <div class="inputform">
+                                    <h4>Họ Và Tên</h4>
+                                    <input type="text" id="name" oninput="validateName()"
+                                           placeholder="Nhập họ và tên của bạn"><br>
+                                    <span id="nameError"></span>
+
+                                    <h4>Số điện thoại</h4>
+                                    <input type="text" id="phone" oninput="validatePhone()"
+                                           placeholder="Nhập số điện thoại của bạn"><br>
+                                    <span id="phoneError"></span>
+
+                                    <h4>Email</h4>
+                                    <input type="email" id="email" oninput="validateEmail()"
+                                           placeholder="Nhập email của bạn"><br>
+                                    <span id="emailError"></span>
+
+                                    <form id="Formpassword">
+                                        <h4>Mật Khẩu</h4>
+                                        <input type="password" id="password1" name="password1"
+                                               oninput="validatePassword1()" placeholder="Nhập mật khẩu của bạn"><br>
+                                        <span id="passwordError1"></span>
+                                        <h4>Xác Nhận Mật Khẩu</h4>
+                                        <input type="password" id="password2" name="password2"
+                                               oninput="validatePassword2()" placeholder="Nhập lại mật khẩu của bạn"><br>
+                                        <span id="passwordError2"></span>
+                                        <div id="message"></div>
+                                        <button class="btnformDN" type="submit" value="submit">
+                                            Đăng
+                                            Ký
+                                        </button>
+                                        <!-- <input type="submit" value="Submit"> -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal" id="idModal">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 800px; max-height: 664px;">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="Modal1">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <div class="pizza">
+                        <div class="left">
+                            <img src="~/Content/images/img/Pizza Seoul Bò Xào Bulgogi.jpg" />
+                        </div>
+                        <div class="right">
+                            <div class="righttext">
+                                <div class="text">
+                                    <h2 id="productTitle">Pizza Seoul Bò Xào Bulgogi Viền Khoai Lang Phô Mai - Seoul Beef Bulgogi Cheesy Sweet Potato Crust</h2>
+                                    <p id="productDescription">Phô Mai Mozzarella, Xốt Bulgogi, Bò Bulgogi, Miến Hàn Quốc, Cà Rốt, Nấm, Ớt Chuông Xanh, Mè Trắng, Viền Phô Mai Khoai Lang</p>
+                                </div>
+                                <hr style="width: 65px; margin: 16px 0 24px">
+                                <div class="debanh">
+                                    <form class="select" onchange="updateTotal()">
+                                        <h4>Chọn đế bánh</h4>
+                                        <div class="option">
+                                            <label for="thin">
+                                                <input type="radio" name="productOptions" class="input1" id="thin"
+                                                       data-product-option-name="Đế mỏng giòn"
+                                                       value="0"
+                                                       data-product-type="Đế bánh"
+                                                       onchange="updateTotal()"><span>Đế mỏng giòn</span>
+                                            </label>
+                                            <img src="~/Content/images/img/pizza-base-1.png" alt="Thin and crispy crust">
+                                        </div>
+                                        <div class="option">
+                                            <label for="thick">
+                                                <input type="radio" name="productOptions" class="input1" id="thick"
+                                                       data-product-option-name="Đế dày xốp"
+                                                       value="0"
+                                                       data-product-type="Đế bánh"
+                                                       onchange="updateTotal()"><span>Đế dày xốp</span>
+                                            </label>
+                                            <img src="~/Content/images/img/pizza-base-2.png" alt="Thick and fluffy crust">
+                                        </div>
+                                        <div class="option">
+                                            <label for="medium">
+                                                <input type="radio" name="productOptions" class="input1" id="medium"
+                                                       data-product-option-name="Đế vừa"
+                                                       value="0"
+                                                       data-product-type="Đế bánh"
+                                                       onchange="updateTotal()"><span>Đế vừa</span>
+                                            </label>
+                                            <img src="~/Content/images/img/pizza-base-3.png" alt="Medium crust">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="size">
+                                    <form class="select" onchange="updateTotal()">
+                                        <h4>Chọn cỡ bánh</h4>
+                                        <div class="option">
+                                            <label for="thin">
+                                                <input type="radio" name="productOptions" class="input1" id="size9"
+                                                       data-product-option-name="Cỡ 9 inch"
+                                                       value="195500"
+                                                       data-product-type="Cỡ bánh"
+                                                       onchange="updateTotal()"><span>Cỡ 9 inch = 195,500₫</span>
+                                            </label>
+                                            <img src="~/Content/images/img/pizza-size-2.png" alt="Thin and crispy crust">
+                                        </div>
+                                        <div class="option">
+                                            <label for="medium">
+                                                <input type="radio" name="productOptions" class="input1" id="size12"
+                                                       data-product-option-name="Cỡ 12 inch"
+                                                       value="294000"
+                                                       data-product-type="Cỡ bánh"
+                                                       onchange="updateTotal()"><span>Cỡ 12 inch = 294,000₫</span>
+                                            </label>
+                                            <img src="~/Content/images/img/pizza-size-3.png" alt="Medium crust">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="select-more">
+                                    <form method="post" class="select" onchange="updateTotal()">
+                                        <h4>Tùy chọn thêm</h4>
+                                        <div class="option">
+                                            <label for="extraCheese">
+                                                <input type="radio" name="productOptions" class="input1" id="extraCheese"
+                                                       data-product-option-name="Thêm phô mai"
+                                                       value="24500"
+                                                       onchange="updateTotal()"><span>Thêm phô mai = 24,500₫</span>
+                                            </label>
+                                            <img src="~/Content/images/img/1phomai-v.png" alt="Thin and crispy crust">
+                                        </div>
+                                        <div class="option">
+                                            <label for="doubleCheese">
+                                                <input type="radio" name="productOptions" class="input1" id="doubleCheese"
+                                                       data-product-option-name="Gấp đôi phô mai "
+                                                       value="44500"
+                                                       onchange="updateTotal()"><span>Gấp đôi phô mai = 44,500₫</span>
+                                            </label>
+                                            <img src="~/Content/images/img/2phomai-v.png" alt="Medium crust">
+                                        </div>
+                                        <div class="option">
+                                            <label for="tripleCheese">
+                                                <input type="radio" name="productOptions" class="input1" id="tripleCheese"
+                                                       data-product-option-name="Gấp ba phô mai "
+                                                       value="64000"
+                                                       onchange="updateTotal()"><span>Gấp ba phô mai = 64,000₫</span>
+                                            </label>
+                                            <img src="~/Content/images/img/3phomai-v.png" alt="Medium crust">
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="modal-footer justify-content-center justify-content-lg-auto flex-lg-nowrap mt-auto">
+                                    <div class="addcart d-lg-flex">
+                                        <button type="button" class="buttondis" return false; onclick="decrease()">-</button>
+                                        <span class="counter">1</span>
+                                        <button type="button" class="buttonadd" return false; onclick="increase()">+</button>
+                                        <button type="button" class="btnformDN" data-bs-dismiss="modal" onclick="addtocart(0)">Thêm vào giỏ hàng <span id="total1">0</span> ₫</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="header">
+        <!-- For medium devices (desktops, 768px and up) -->
+        <div class="nav d-none d-md-block">
+            <nav class="navbar navbar-expand-md">
+                <a class="navbar-brand" href="@Url.Action("Index", "Index")">
+                    <img src="~/Content/images/logo/domino-horizontal-dark.svg" alt="Pizza Dominos">
+                </a>
+
+                <div class="collapse navbar-collapse" style="justify-content: center;">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "eVoucher")">MÃ E-VOUCHER</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "promotion")">KHUYẾN MÃI</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Menu")">THỰC ĐƠN</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Checkorder")">THEO DÕI ĐƠN HÀNG</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "liststore")">DANH SÁCH CỬA HÀNG</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">BLOG</a></li>
+                    </ul>
+                </div>
+
+                <div class="d-flex">
+                    <a class="text-decoration-none pl-3" role="button">
+                        <img src="~/Content/images/flags/flag-vn.png" alt="flag-vn">
+                    </a>
+                    <a class="text-decoration-none ml-1" role="button">
+                        <img src="~/Content/images/flags/flag-en.png" alt="flag-en">
+                    </a>
+                </div>
+
+                <div class="icon">
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <i class="fa fa-user" style="color: #ffffff; font-size: xx-large;"></i>
+                    </a>
+                </div>
+
+                <div class="icon">
+                    <a class="nav-link" href="@Url.Action("Index", "Cart")">
+                        <i class="fa-solid fa-basket-shopping" style="color: #ffffff; font-size: xx-large;"></i>
+                        <p class="count" style="background-color: red; padding: 5px">0</p>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- For small devices (tablets, 576px and up) -->
+    <div class="nav1 d-none d-sm-block d-md-none">
+        <nav class="navbar1 navbar-expand-md  ">
+            <a class="navbar-brand1" href="@Url.Action("Index", "Index")">
+
+                <img src="~/Content/images/logo/domino-horizontal-dark.svg" alt="Pizza Dominos">
+            </a>
+            <div class="d-flex">
+                <a class="text-decoration-none pl-3" role="button">
+                    <img src="~/Content/images/flags/flag-vn.png"
+                         alt="flag-vn">
+                </a>
+                <a class="text-decoration-none ml-1" role="button">
+                    <img src="~/Content/images/flags/flag-en.png"
+                         alt="flag-en">
+                </a>
+            </div>
+            <div class="icon-left">
+                <div class="icon1 ">
+                    <a class="nav-link1" href="@Url.Action("Index", "Checkorder")">
+                        <i class="fa-solid fa-motorcycle" style="padding-top: 10px ;font-size:25px;"></i>
+                    </a>
+                </div>
+                <div class="icon1">
+                    <a class="nav-link1" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <i class="fa-solid fa-user" style=" padding-top: 10px ;font-size:25px;color:#ffffff"></i>
+                    </a>
+                </div>
+                <div class="icon1 ">
+                    <a class="nav-link1" href="@Url.Action("Index", "Cart")">
+                        <i class="fa-solid fa-basket-shopping" style="font-size:25px;"></i><p class="count" style="background-color: red; padding:5px">0</p>
+                    </a>
+                </div>
+                <div class="icon1 ">
+                    <a class="nav-link1">
+                        <div id="hamburgerbar1">
+                            <span id="openNav1" style="font-size:26px;color:#ffffff" onclick="openNav1()">☰</span>
+                            <span id="closeNav1" href="javascript:void(0)" class="closebtn1" onclick="closeNav1()"
+                                  style="font-size:26px;display:none">×</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!--  For extra small devices (phones, less than 576px) -->
+    <div class="nav1 d-block d-sm-none">
+        <nav class="navbar1 navbar-expand-md">
+            <a class="navbar-brand1" href="@Url.Action("Index", "Index")">
+
+                <img src="~/Content/images/flags/domino.svg" alt="Pizza Dominos" />
+            </a>
+            <div class="icon-left">
+                <div class="icon1">
+                    <a class="nav-link1"  href="@Url.Action("Index", "Checkorder")">
+                        <i class="fa-solid fa-motorcycle" style="padding-top: 10px; font-size: 25px;"></i>
+                    </a>
+                </div>
+                <div class="icon1">
+                    <a class="nav-link1" href=" @Url.Action("Index", "promotion")">
+
+                        <img src="~/Content/images/flags/promotion1.svg" alt="sales" />&nbsp;
+                    </a>
+                </div>
+                <div class="icon1">
+                    <a class="nav-link1" href=" @Url.Action("Index", "Menu") ">
+
+                        <img src="~/Content/images/flags/menu.svg" alt="menu" />
+                    </a>
+                </div>
+                <div class="icon1">
+                    <a class="nav-link1" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <i class="fa-solid fa-user" style="padding-top: 10px; font-size: 25px; color: #ffffff"></i>
+                    </a>
+                </div>
+                <div class="icon1">
+                    <a class="nav-link1" href=" @Url.Action("Index", "Cart") ">
+                        <i class="fa-solid fa-basket-shopping" style="padding-top: 10px; font-size: 25px;"></i>
+                        <p class="count" style="background-color: red; padding: 3px">0</p>
+                    </a>
+                </div>
+                <div class="icon1">
+                    <a class="nav-link1">
+                        <div id="hamburgerbar">
+                            <span id="openNav" style="font-size: 26px; color: #ffffff" onclick="openNav()">☰</span>
+                            <span id="closeNav" href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+                                  style="font-size: 26px; display: none">×</span>
+                        </div>
+                    </a>
+                </div>
+                <div id="mySidenav" class="sidenav">
+                    <a data-bs-toggle="modal" data-bs-target="#myModal" style="color: #ffffff">ĐĂNG NHẬP/TẠO TÀI KHOẢN</a>
+                    <a href=" @Url.Action("Index", "eVoucher")">MÃ E-VOUCHER</a>
+                    <a href=" @Url.Action("Index", "promotion")">KHUYẾN MÃI</a>
+                    <a href=" @Url.Action("Index", "Menu")">THỰC ĐƠN</a>
+                    <a href=" @Url.Action("Index", "Checkorder")">THEO DÕI ĐƠN HÀNG</a>
+                    <a href="#">BLOG</a>
+                    <a href="#">TUYỂN DỤNG</a>
+                    <a href="#">CHÍNH SÁCH</a>
+                    <a href=" @Url.Action("Index", "liststore")">DANH SÁCH CỬA HÀNG</a>
+                    <div class="fb-itg">
+                        <a href="https://www.facebook.com/DominosPizzaVietnam/?brand_redir=207571100452">
+                            <i class="fa fa-facebook" style="font-size: 30px;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dominospizza_vietnam/">
+                            <i class="fa fa-instagram" style="font-size: 30px;"></i>
+                        </a>
+                    </div>
+                    <div class="d-flex1">
+                        <a class="text-decoration-none pl-3" role="button">
+                            <img src="~/Content/images/flags/flag-vn.png" alt="flag-vn">
+                        </a>
+                        <a class="text-decoration-none ml-1" role="button">
+                            <img src="~/Content/images/flags/flag-en.png" alt="flag-en">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <script src="~/Content/javascript/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+</body>
+</html>

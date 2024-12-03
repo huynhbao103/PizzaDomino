@@ -1,0 +1,155 @@
+﻿
+@{
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+<head>
+    <title>Domino's Pizza Việt Nam - Thương Hiệu Pizza Số 1 Thế Giới</title>
+    <link href="~/Content/CSS/Index.css" rel="stylesheet" />
+</head>
+
+<head>
+
+    <link rel="stylesheet" href="~/Content/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/owlcarousel/assets/owl.theme.green.css">
+    <script src="~/Content/owlcarousel/owl.carousel.min.js"></script>
+</head>
+<div class="owl-carousel owl-theme">
+    <div class="item"><a><img class="slider" src="~/Content/images/swiper/swiper1.jpg"></a></div>
+    <div class="item"><a><img class="slider" src="~/Content/images/swiper/swiper2.jpg"></a></div>
+    <div class="item"><a><img class="slider" src="~/Content/images/swiper/swiper3.jpg"></a></div>
+    <div class="item"><a><img class="slider" src="~/Content/images/swiper/swiper4.jpg"></a></div>
+    <div class="item"><a><img class="slider" src="~/Content/images/swiper/swiper5.jpg"></a></div>
+    <div class="item"><a><img class="slider" src="~/Content/images/swiper/swiper6.jpg"></a></div>
+    <div class="item"><a><img class="slider" src="~/Content/images/swiper/swiper7.jpg"></a></div>
+    <div class="item"><a><img class="slider" src="~/Content/images/swiper/swiper8.jpg"></a></div>
+</div>
+<script>
+    $(document).ready(function () {
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 20,
+        // stagePadding: 50,
+        nav: true,
+        center: true,
+        autoplay: true,
+        autoHeight: true,
+        autowidth: true,
+        items: 8,
+
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 1
+          },
+          1000: {
+            items: 2
+
+          }
+        }
+      });
+    });
+</script>
+
+<div class="background"
+     style=" background-image: url('../../content/images/background/deep-see.png'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <div classs="search-btn">
+        <a id="myButton1" onclick="changeColor('myButton1')" class="transparent-button"> Giao hàng tận nơi</a>
+        <a id="myButton2" onclick="changeColor('myButton2')" class="transparent-button">Đặt đến lấy</a>
+    </div>
+    <div class="tab-pane">
+        <div class="search-input">
+            <input class="input1" type="text" placeholder="Vui lòng nhập địa chỉ nhà hàng">
+            <button class="button3"> <i class="fa fa-search"></i></button>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="border-bottom border-grey-lighter">
+            <div class="row_flex ">
+                <h4>Hôm nay ăn gì ?</h4>
+                <ul class="nav nav-product-menu d-flex justify-content-start flex-grow-1">
+                    <li class="discount"><a>khuyến mãi mỗi ngày</a></li>
+                    <li class="best"><a></a>Best sellers</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row org-product-grid py-3 flex-nowrap overflow-auto">
+            <div class="col">
+                <div class="cart_product">
+                    <div class="product_img">
+                        <div class="img">
+                            <a class="product"> 
+                                <img src="~/Content/images/img/Pizza-Extra-Topping-(2).jpg" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cart_content ">
+                        <a href="" class="name">Pizza Siêu Topping Hải Sản Xốt Mayonnaise - Super Topping Ocean Mania</a>
+                        <p class="price">MEDIUM - 235,000₫</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="cart_product">
+                    <div class="product_img">
+                        <div class="img">
+                            <a class="product">
+                                <img src="~/Content/images/img/Pizza-Extra-Topping-(3).jpg" />
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cart_content">
+                        <a href="" class="name">Pizza Ngập Vị Phô Mai Hảo Hạng - Cheesy Madness</a>
+                        <p class="price">MEDIUM - 235,000₫</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="cart_product">
+                    <div class="product_img">
+                        <div class="img">
+                            <a class="product">
+                                <img src="~/Content/images/img/Pizza-Extra-Topping-(4).jpg" />
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cart_content">
+                        <a href="" class="name">Pizza Siêu Topping Hải Sản Xốt Mayonnaise - Super Topping Ocean Mania</a>
+                        <p class="price">MEDIUM - 235,000₫</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="cart_product">
+                    <div class="product_img">
+                        <div class="img">
+                            <a class="product">
+                                <img src="~/Content/images/img/Pizza-Extra-Topping-(5).jpg" />
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cart_content">
+                        <a href="" class="name">Pizza Siêu Topping Hải Sản Xốt Mayonnaise - Super Topping Ocean Mania</a>
+                        <p class="price">MEDIUM - 235,000₫</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-12">
+            <div class="d-flex1 justify-content-center align-items-center">
+                <a class="btn btn-armchair" href="@Url.Action("Index", "Menu")">Xem Thêm</a>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Content/javascript/slider.js"></script>

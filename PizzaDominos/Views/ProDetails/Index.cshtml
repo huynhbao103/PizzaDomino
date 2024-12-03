@@ -1,0 +1,101 @@
+﻿@model IEnumerable<PizzaDominos.Models.ProDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size.SizeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RemainQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoldQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViewQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Base.BaseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.ProName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rim.RimName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size.SizeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Topping.ToppingName)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size.SizeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RemainQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoldQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ViewQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Base.BaseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rim.RimName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size.SizeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Topping.ToppingName)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProDeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProDeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProDeID })
+            </td>
+        </tr>
+    }
+
+</table>

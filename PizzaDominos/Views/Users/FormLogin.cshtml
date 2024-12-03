@@ -1,0 +1,74 @@
+﻿@model PizzaDominos.Models.User
+
+@{
+    ViewBag.Title = "FormLogin";
+    Layout = null;
+}
+
+@*<style>
+    </style>
+    <h2>Đăng Nhập</h2>
+    @using (Html.BeginForm("LoginAcount", "User"))
+    {
+        @Html.AntiForgeryToken()
+        <table>
+            <tr>
+                <td>@Html.LabelFor(model => model.Username) </td>
+                <td>@Html.TextBoxFor(model => model.Username, new { style = "field-validation-error" })</td>
+                <td>@Html.ValidationMessageFor(model => model.Username) </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Password)</td>
+                <td>@Html.EditorFor(model => model.Password) </td>
+                <td>@Html.ValidationMessageFor(model => model.Password) </td>
+                @if (ViewBag.ErrorInfo == null)
+                {
+                    <p> @ViewBag.ErrorInfo</p>
+                }
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+            </tr>
+        </table>
+    }*@
+
+<link href="~/Content/CSS/Cart.css" rel="stylesheet" />
+<div style="background-color:white">
+    <div class="Modal">
+        <div class="Modal-pizza">
+            <img src="~/Content/images/img/anh1.png" alt="pizza">
+        </div>
+        <div id="formContainer">
+            <div class="form">
+                <div class="loginLink">
+                    <div id="DN" style="color:red;">
+                        Đăng Nhập
+                    </div>
+                </div>
+
+                <!-- Existing login form using Html.BeginForm -->
+                @using (Html.BeginForm("LoginAcount", "Users"))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="inputform">
+                        <h4>Email</h4>
+                        @Html.TextBoxFor(model => model.Username, new { placeholder = "Nhập email của bạn", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Username)
+
+                        <h4>Mật Khẩu</h4>
+                        @Html.PasswordFor(model => model.Password, new { placeholder = "Nhập mật khẩu của bạn", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Password)
+
+                        <input type="submit" class="btnformDN" value="Đăng Nhập" />
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+

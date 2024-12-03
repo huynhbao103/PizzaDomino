@@ -1,0 +1,602 @@
+﻿
+@{
+    Layout = "~/Views/Shared/Masterlayout1.cshtml";
+}
+
+<head>
+    <title>Pizza Ngon, Mì Ý &amp; Món Ăn Phụ  - Domino's Pizza Việt Nam</title>
+    <link href="~/Content/CSS/Menu.css" rel="stylesheet" />
+</head>
+
+<!-- bodymap -->
+<section class="bg-grey-lightest product-listing" style="padding-top:80px">
+    <div class="container-fluid">
+        <div class="row row-product-layout justify-content-center">
+            <div class="col-9 col-product-layout-list">
+                <div class="cart-fixed w-100">
+                    <div>
+                        <div class="background"
+                             style="background-image: url('../Content/images/background/deep-see.png'); background-size: cover; background-repeat: no-repeat; background-position: center; ">
+                            <div classs="search-btn">
+                                <a id="myButton1" onclick="changeColor('myButton1')" class="transparent-button">
+                                    Giao hàng tận nơi
+
+                                </a>
+                                <a id="myButton2" onclick="changeColor('myButton2')" class="transparent-button">
+                                    Đặt
+                                    đến lấy
+                                </a>
+                            </div>
+                            <div class="tab-pane">
+                                <div class="search-input">
+                                    <input class="input1" type="text" placeholder="Vui lòng nhập địa chỉ nhà hàng">
+                                    <button class="button3"> <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row product-categories bg-white border-bottom border-grey-lighter "
+                             style="height: 40px;">
+                            <div class="col-9 col-md-10 px-0 px-md-3 mx-md-auto pt-0 ">
+                                <ul class="nav justify-content-start justify-content-md-between mx-n3 category-container">
+                                    <li class="nav-item"><a href="./khuyenmai.html">Khuyến mãi mỗi ngày</a></li>
+                                    <li class="nav-item"><a>Pizza</a></li>
+                                    <li class="nav-item"><a>Món phụ</a></li>
+                                    <li class="nav-item"><a>Tráng miệng</a></li>
+                                    <li class="nav-item"><a>thức uống</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="cart-product-view container-fluid overflow-auto" style="height: 360px;">
+                    <div class="row product-filter">
+                        <div class="col-9 col-md-10 mx-auto">
+                            <div class="d-flex justify-content-start align-items-center flex-wrap my-3">
+                                <a class="btn btn-coke btn-sm rounded-xl mr-3 mb-2 custom-tag-btn" href=""
+                                   style="font-weight:bold"> Tất cả</a>
+
+                                <a class="btn btn-light btn-sm border rounded-xl mr-3 mb-2 custom-tag-btn" href=""
+                                   style="font-weight:bold">
+                                    Hải sản
+                                    <img class="tag-logo" src="~/Content/images/filler/fried-shrimp_1f364.png" alt="">
+                                </a>
+                                <a class="btn btn-light btn-sm border rounded-xl mr-3 mb-2 custom-tag-btn" href=""
+                                   style="font-weight:bold">
+                                    Bò
+                                    <img class="tag-logo" src="~/Content/images/filler/cut-of-meat_1f969.png" alt="">
+                                </a>
+                                <a class="btn btn-light btn-sm border rounded-xl mr-3 mb-2 custom-tag-btn" href=""
+                                   style="font-weight:bold">
+                                    Gà
+                                    <img class="tag-logo" src="~/Content/images/filler/poultry-leg_1f357.png" alt="">
+                                </a>
+                                <a class="btn btn-light btn-sm border rounded-xl mr-3 mb-2 custom-tag-btn" href=""
+                                   style="font-weight:bold">
+                                    Heo
+                                    <img class="tag-logo" src="~/Content/images/filler/bacon_1f953.png" alt="">
+                                </a>
+                                <a class="btn btn-light btn-sm border rounded-xl mr-3 mb-2 custom-tag-btn" href=""
+                                   style="font-weight:bold">
+                                    Ăn chay
+                                    <img class="tag-logo" src="~/Content/images/filler/leafy-green_1f96c.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--  -->
+                    <div class="row category-heading pt-1 pb-2 pb-md-4">
+                        <div class="col-9 col-md-11 mx-auto mt-3 text-center">
+                            <h4 class="hr-content bg-grey-lightest text-uppercase collection-container ">
+                                <span class="px-2">
+                                    FLAVOR OF THE WILD
+                                </span>
+                            </h4>
+
+
+                            <div class="row category-products">
+                                <div class="col-12 col-md-11 mx-auto">
+                                    <div class="row org-product-grid py-3 flex-nowrap" id="root">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!--  -->
+                    <div class="row category-heading pt-1 pb-2 pb-md-4">
+                        <div class="col-9 col-md-11 mx-auto mt-3 text-center">
+                            <h4 class="hr-content bg-grey-lightest text-uppercase collection-container ">
+                                <span class="px-2">
+                                    SUPER TOPPING
+                                </span>
+                            </h4>
+
+
+                            <div class="row category-products">
+                                <div class="col-12 col-md-11 mx-auto">
+                                    <div class="row org-product-grid py-3 flex-wrap ">
+                                        <div class="col-3 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            
+                                                            <img src="~/Content/images/img/Pizza-Extra-Topping-(2).jpg"/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content ">
+                                                    <a href="" class="name">
+                                                        Pizza Siêu Topping Hải Sản Xốt
+                                                        Mayonnaise - Super Topping Ocean Mania
+                                                    </a>
+                                                    <p class="price">MEDIUM - 235,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Extra-Topping-(3).jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        Pizza Ngập Vị Phô Mai Hảo Hạng - Cheesy
+                                                        Madness
+                                                    </a>
+                                                    <p class="price">MEDIUM - 235,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Extra-Topping-(4).jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        Pizza Siêu Topping Hải Sản Xốt
+                                                        Mayonnaise - Super Topping Ocean Mania
+                                                    </a>
+                                                    <p class="price">MEDIUM - 235,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Extra-Topping(1).jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        Pizza Siêu Topping Hải Sản Xốt
+                                                        Mayonnaise - Super Topping Ocean Mania
+                                                    </a>
+                                                    <p class="price">MEDIUM - 235,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Extra-Topping-(5).jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        Pizza Siêu Topping Hải Sản Xốt
+                                                        Mayonnaise - Super Topping Ocean Mania
+                                                    </a>
+                                                    <p class="price">MEDIUM - 235,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--  -->
+
+                    <div class="row category-heading pt-1 pb-2 pb-md-4">
+                        <div class="col-9 col-md-11 mx-auto mt-3 text-center">
+                            <h4 class="hr-content bg-grey-lightest text-uppercase collection-container ">
+                                <span class="px-2">
+                                    SEAFOOD CRAVERS
+                                </span>
+                            </h4>
+
+
+                            <div class="row category-products">
+                                <div class="col-12 col-md-11 mx-auto">
+                                    <div class="row org-product-grid py-3 flex-nowrap ">
+                                        <div class="col-3 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Surf-turf-Pizza-Bo-Tom-Nuong-Kieu-My-1.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content ">
+                                                    <a href="" class="name">
+                                                        PIZZA BÒ & TÔM NƯỚNG KIỂU MỸ - SURF &
+                                                        TURF
+                                                    </a>
+                                                    <p class="price">SMALL - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Hai-San-Xot-Mayonnaise-Ocean-Mania.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        PIZZA HẢI SẢN NHIỆT ĐỚI XỐT TIÊU -
+                                                        PIZZAMIN SEA
+                                                    </a>
+                                                    <p class="price">SMALL - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizzaminsea-Hai-San-Nhiet-Doi-Xot-Tieu.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        PIZZA HẢI SẢN NHIỆT ĐỚI XỐT TIÊU -
+                                                        PIZZAMIN SEA
+                                                    </a>
+                                                    <p class="price">SMALL - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Hai-San-Xot-Ca-Chua-Seafood-Delight.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        PIZZA HẢI SẢN XỐT CÀ CHUA - SEAFOOD
+                                                        DELIGHT
+                                                    </a>
+                                                    <p class="price">SMALL - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!--  -->
+
+                    <div class="row category-heading pt-1 pb-2 pb-md-4">
+                        <div class="col-9 col-md-11 mx-auto mt-3 text-center">
+                            <h4 class="hr-content bg-grey-lightest text-uppercase collection-container ">
+                                <span class="px-2">
+                                    KID FAVORS
+                                </span>
+                            </h4>
+
+
+                            <div class="row category-products">
+                                <div class="col-12 col-md-11 mx-auto">
+                                    <div class="row org-product-grid py-3 flex-nowrap ">
+                                        <div class="col-3 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img class="product-img default" src="~/Content/images/img/Surf-turf-Pizza-Bo-Tom-Nuong-Kieu-My-1.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content ">
+                                                    <a href="" class="name">
+                                                        PIZZA XÚC XÍCH XỐT PHÔ MAI - SAUSAGE KID
+                                                        MANIA
+                                                    </a>
+                                                    <p class="product__newPrice">MEDIUM - 97,500₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Hai-San-Xot-Mayonnaise-Ocean-Mania.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        PIZZA GÀ PHÔ MAI THỊT HEO XÔNG KHÓI -
+                                                        CHEESY CHICKEN BACON
+                                                    </a>
+                                                    <p class="price">LARGE - 97,500₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!--  -->
+
+                    <div class="row category-heading pt-1 pb-2 pb-md-4">
+                        <div class="col-9 col-md-11 mx-auto mt-3 text-center">
+                            <h4 class="hr-content bg-grey-lightest text-uppercase collection-container ">
+                                <span class="px-2">
+                                    TRADITIONAL & MEAT LOVERS
+                                </span>
+                            </h4>
+
+
+                            <div class="row category-products">
+                                <div class="col-12 col-md-11 mx-auto">
+                                    <div class="row org-product-grid py-3 flex-wrap ">
+                                        <div class="col-3 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Pho-Mai-Hao-Hang-Cheese-Mania.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content ">
+                                                    <a href="" class="name">
+                                                        PIZZA NGẬP VỊ PHÔ MAI HẢO HẠNG - CHEESY
+                                                        MADNESS
+                                                    </a>
+                                                    <p class="price">MEDIUM - 176,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Thap-Cam-Thuong-Hang-Extravaganza.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        PIZZA THẬP CẨM THƯỢNG HẠNG -
+                                                        EXTRAVAGANZA
+                                                    </a>
+                                                    <p class="price">MEDIUM - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Veggie-mania-Pizza-Rau-Cu-Thap-Cam.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">PIZZA RAU CỦ THẬP CẨM - VEGGIE MANIA</a>
+                                                    <p class="price">MEDIUM - 87,500₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Meat-lover-Pizza-5-Loai-Thit-Thuong-Hang.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        PIZZA 5 LOẠI THỊT THƯỢNG HẠNG - MEAT
+                                                        LOVERS
+                                                    </a>
+                                                    <p class="price">MEDIUM - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-3 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pepperoni-feast-Pizza-Xuc-Xich-Y.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content ">
+                                                    <a href="" class="name">
+                                                        PIZZA XÚC XÍCH Ý TRUYỀN THỐNG -
+                                                        PEPPERONI FEAST
+                                                    </a>
+                                                    <p class="price">MEDIUM - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Ga-Xot-Tuong-Kieu-Nhat-Teriyaki-Chicken.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        PIZZA GÀ XỐT TƯƠNG KIỂU NHẬT - TERIYAKI
+                                                        CHICKEN
+                                                    </a>
+                                                    <p class="price">MEDIUM - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Dam-Bong-Dua-Kieu-Hawaii-Hawaiian.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        PIZZA DĂM BÔNG DỨA KIỂU HAWAII -
+                                                        HAWAIIAN
+                                                    </a>
+                                                    <p class="price">MEDIUM - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-9 col-sm-6 col-md-3 py-2 flex-fit">
+                                            <div class="cart_product">
+                                                <div class="product_img">
+                                                    <div class="img">
+                                                        <a class="product">
+                                                            <img src="~/Content/images/img/Pizza-Pho-Mai-Hao-Hang-Cheese-Mania.jpg"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_content">
+                                                    <a href="" class="name">
+                                                        PIZZA PHÔ MAI TRUYỀN THỐNG - CHEESE
+                                                        MANIA
+                                                    </a>
+                                                    <p class="price">MEDIUM - 117,000₫</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="col-3 col-product-layout-cart px-0 bg-white d-none d-lg-block d-sm-none d-md-none border">
+                <div id="container">
+                    <div class="row justify-content-center" id="row-container">
+                        <div class="col-12 col-md-12 text-center">
+                            <div id="cartItem">
+                                <img class="img-fluid comp-filter-luminosity" src="/Content/images/img/empty-cart.svg" />
+                                
+                                <h6 class="col-12 col-md-10 text-center" style="margin:auto">
+                                    Giỏ hàng chưa có sản phẩm. Xin mời bạn mua hàng
+                                </h6>
+
+                            </div>
+
+                            <div id="root" class="container">
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+

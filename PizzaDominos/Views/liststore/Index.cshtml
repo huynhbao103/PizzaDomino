@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+<head>
+    <title>Hệ Thống Cửa Hàng - Domino's Pizza Việt Nam</title>
+    <link href="~/Content/CSS/liststore.css" rel="stylesheet" />
+</head>
+
+<!-- bodymap -->
+<div class="bodymap">
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d953761.3427033772!2d105.8782635398167!3d20.96735899101723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdomino&#39;s%20pizza!5e0!3m2!1svi!2s!4v1696726383477!5m2!1svi!2s" width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="inputbutton">
+            <input class="input" id="address" type="text" placeholder="Vui Lòng Nhập Địa Chỉ Nhận Hàng" name="address">
+            <button id="check" class="button1" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="product-layout">
+        <div class="tab-content">
+            <form action="get" target="/">
+                <select class="select-city" name="city">
+                    <option value="null" selected="">Chọn Tỉnh/Thành phố</option>
+                </select>
+                <select class="select-district" name="district">
+                    <option value="null" selected="">Chọn Quận/Huyện</option>
+                </select><p class="the-p">Danh sách cửa hàng</p>
+            </form>
+        </div>
+    </div>
+</div>
+

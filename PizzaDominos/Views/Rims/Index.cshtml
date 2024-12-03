@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PizzaDominos.Models.Rim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý loại viền</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            TÊN LOẠI VIỀN
+        </th>
+        <th>
+            GIÁ TIỀN
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RimName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.RimID }, new { @class = "btn btn-sm btn-success" }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.RimID }, new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+    }
+    <p>
+        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+
+</table>

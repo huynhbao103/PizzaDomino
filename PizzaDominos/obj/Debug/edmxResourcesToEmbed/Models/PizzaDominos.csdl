@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PizzaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Base">
+    <Key>
+      <PropertyRef Name="BaseID" />
+    </Key>
+    <Property Name="BaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BaseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__BaseI__5535A963" FromRole="Base" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CatID" />
+    </Key>
+    <Property Name="CatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Pro_Category" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CusPhone" />
+    </Key>
+    <Property Name="CusPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CusPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CusName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CusEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Order__CusPhone__5070F446" FromRole="Customer" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Filling">
+    <Key>
+      <PropertyRef Name="FillingID" />
+    </Key>
+    <Property Name="FillingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FillingName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Pro_Filling" FromRole="Filling" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDate" Type="DateTime" Precision="0" />
+    <Property Name="CusPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressDeliverryID" Type="Int32" />
+    <Property Name="TotalValue" Type="Double" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Order__CusPhone__5070F446" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Order__5441852A" FromRole="Order" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailID" />
+    </Key>
+    <Property Name="OrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProDeID" Type="Int32" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="BaseID" Type="Int32" />
+    <Property Name="ToppingID" Type="Int32" />
+    <Property Name="RimID" Type="Int32" />
+    <Property Name="UnitPrice" Type="Double" />
+    <NavigationProperty Name="Base" Relationship="Self.FK__OrderDeta__BaseI__5535A963" FromRole="OrderDetail" ToRole="Base" />
+    <NavigationProperty Name="Order" Relationship="Self.FK__OrderDeta__Order__5441852A" FromRole="OrderDetail" ToRole="Order" />
+    <NavigationProperty Name="ProDetail" Relationship="Self.FK__OrderDeta__ProDe__534D60F1" FromRole="OrderDetail" ToRole="ProDetail" />
+    <NavigationProperty Name="Rim" Relationship="Self.FK__OrderDeta__RimID__571DF1D5" FromRole="OrderDetail" ToRole="Rim" />
+    <NavigationProperty Name="Topping" Relationship="Self.FK__OrderDeta__Toppi__5629CD9C" FromRole="OrderDetail" ToRole="Topping" />
+  </EntityType>
+  <EntityType Name="ProDetail">
+    <Key>
+      <PropertyRef Name="ProDeID" />
+    </Key>
+    <Property Name="ProDeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProID" Type="Int32" Nullable="false" />
+    <Property Name="SizeID" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="RemainQuantity" Type="Int32" />
+    <Property Name="SoldQuantity" Type="Int32" />
+    <Property Name="ViewQuantity" Type="Int32" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__ProDe__534D60F1" FromRole="ProDetail" ToRole="OrderDetail" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__ProDetail__ProID__48CFD27E" FromRole="ProDetail" ToRole="Product" />
+    <NavigationProperty Name="Size" Relationship="Self.FK__ProDetail__SizeI__49C3F6B7" FromRole="ProDetail" ToRole="Size" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProID" />
+    </Key>
+    <Property Name="ProID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CatID" Type="Int32" Nullable="false" />
+    <Property Name="FillingID" Type="Int32" Nullable="false" />
+    <Property Name="ProImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NameDecription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Thumnail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Pro_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Filling" Relationship="Self.FK_Pro_Filling" FromRole="Product" ToRole="Filling" />
+    <NavigationProperty Name="ProDetails" Relationship="Self.FK__ProDetail__ProID__48CFD27E" FromRole="Product" ToRole="ProDetail" />
+  </EntityType>
+  <EntityType Name="Rim">
+    <Key>
+      <PropertyRef Name="RimID" />
+    </Key>
+    <Property Name="RimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RimName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__RimID__571DF1D5" FromRole="Rim" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="Size">
+    <Key>
+      <PropertyRef Name="SizeID" />
+    </Key>
+    <Property Name="SizeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SizeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ProDetails" Relationship="Self.FK__ProDetail__SizeI__49C3F6B7" FromRole="Size" ToRole="ProDetail" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Topping">
+    <Key>
+      <PropertyRef Name="ToppingID" />
+    </Key>
+    <Property Name="ToppingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ToppingName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Toppi__5629CD9C" FromRole="Topping" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__OrderDeta__BaseI__5535A963">
+    <End Role="Base" Type="Self.Base" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Base">
+        <PropertyRef Name="BaseID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="BaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pro_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CatID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__CusPhone__5070F446">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CusPhone" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CusPhone" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pro_Filling">
+    <End Role="Filling" Type="Self.Filling" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filling">
+        <PropertyRef Name="FillingID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="FillingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__Order__5441852A">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__ProDe__534D60F1">
+    <End Role="ProDetail" Type="Self.ProDetail" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProDetail">
+        <PropertyRef Name="ProDeID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ProDeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__RimID__571DF1D5">
+    <End Role="Rim" Type="Self.Rim" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rim">
+        <PropertyRef Name="RimID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="RimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__Toppi__5629CD9C">
+    <End Role="Topping" Type="Self.Topping" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topping">
+        <PropertyRef Name="ToppingID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ToppingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProDetail__ProID__48CFD27E">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProDetail" Type="Self.ProDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProID" />
+      </Principal>
+      <Dependent Role="ProDetail">
+        <PropertyRef Name="ProID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProDetail__SizeI__49C3F6B7">
+    <End Role="Size" Type="Self.Size" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProDetail" Type="Self.ProDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Size">
+        <PropertyRef Name="SizeID" />
+      </Principal>
+      <Dependent Role="ProDetail">
+        <PropertyRef Name="SizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PizzaDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bases" EntityType="Self.Base" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Fillings" EntityType="Self.Filling" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+    <EntitySet Name="ProDetails" EntityType="Self.ProDetail" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Rims" EntityType="Self.Rim" />
+    <EntitySet Name="Sizes" EntityType="Self.Size" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Toppings" EntityType="Self.Topping" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__OrderDeta__BaseI__5535A963" Association="Self.FK__OrderDeta__BaseI__5535A963">
+      <End Role="Base" EntitySet="Bases" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pro_Category" Association="Self.FK_Pro_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__CusPhone__5070F446" Association="Self.FK__Order__CusPhone__5070F446">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pro_Filling" Association="Self.FK_Pro_Filling">
+      <End Role="Filling" EntitySet="Fillings" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__Order__5441852A" Association="Self.FK__OrderDeta__Order__5441852A">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__ProDe__534D60F1" Association="Self.FK__OrderDeta__ProDe__534D60F1">
+      <End Role="ProDetail" EntitySet="ProDetails" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__RimID__571DF1D5" Association="Self.FK__OrderDeta__RimID__571DF1D5">
+      <End Role="Rim" EntitySet="Rims" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__Toppi__5629CD9C" Association="Self.FK__OrderDeta__Toppi__5629CD9C">
+      <End Role="Topping" EntitySet="Toppings" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProDetail__ProID__48CFD27E" Association="Self.FK__ProDetail__ProID__48CFD27E">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProDetail" EntitySet="ProDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProDetail__SizeI__49C3F6B7" Association="Self.FK__ProDetail__SizeI__49C3F6B7">
+      <End Role="Size" EntitySet="Sizes" />
+      <End Role="ProDetail" EntitySet="ProDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

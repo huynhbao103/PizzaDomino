@@ -1,0 +1,40 @@
+﻿@model PizzaDominos.Models.Filling
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>QUẢN LÝ LOẠI NHÂN BÁNH</h2>
+
+<h3>Bạn thực sự muốn xóa?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            MÃ NHÂN BÁNH
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FillingID)
+        </dd>
+        <dt>
+            Tên NHÂN BÁNH
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FillingName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" /> |
+            @Html.ActionLink("Danh sách", "Index", null, new { @class = "btn btn-info" })
+        </div>
+    }
+</div>

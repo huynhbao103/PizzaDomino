@@ -1,0 +1,137 @@
+﻿
+@{
+    Layout = "~/Views/Shared/MasterLayout.cshtml";
+}
+
+<head>
+    <title>Theo Dõi Đơn Hàng - Domino's Pizza Việt Nam</title>
+    <link href="~/Content/CSS/Checkorder.css" rel="stylesheet" />
+</head>
+
+<!-- bodymap -->
+<main class="d-none d-lg-block">
+    <div class="body">
+        <div class="content">
+            <div class="imgbody-dsdh">
+                <img src="~/Content/images/img/stock-stracking.png" class="img-fluid" alt="stock-stracking">
+            </div>
+            
+            <div class="text-order">
+                <div class="text-order-h4">
+                    <h4>Theo Dõi Đơn Hàng - Domino's Pizza Việt Nam</h4>
+                </div>
+                <div class="inputbutton">
+                    <div>
+                        <input class="input" type="text" id="phone1" oninput="validatePhone1()"
+                               placeholder="Nhập số điện thoại của bạn"> <br>
+                        <span id="phoneError1"></span>
+                    </div>
+                    <button id="check" class="button" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- For small devices (tablets, 576px and up) -->
+</main>
+<main class="d-none d-sm-block d-lg-none">
+    <div class="body">
+        <div class="content">
+            <div class="text-order">
+                <div class="text-order-h4">
+                    <h4>Theo Dõi Đơn Hàng - Domino's Pizza Việt Nam</h4>
+                </div>
+                <div class="inputbutton">
+                    <div>
+                        <input class="input1" type="text" id="phone2" oninput="validatePhone2()"
+                               placeholder="Nhập số điện thoại của bạn"> <br>
+                        <span id="phoneError2"></span>
+                    </div>
+                    <button id="check" class="button" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+<!-- For extra small devices (phones, less than 576px) -->
+<main class="d-block d-sm-none ">
+    <div class="body">
+        <div class="content">
+            <div class="text-order">
+                <div class="text-order-h4">
+                    <h4>Theo Dõi Đơn Hàng - Domino's Pizza Việt Nam</h4>
+                </div>
+                <div class="inputbutton">
+                    <div>
+                        <input class="input1" type="text" id="phone3" oninput="validatePhone3()"
+                               placeholder="Nhập số điện thoại của bạn"> <br>
+                        <span id="phoneError3"></span>
+                    </div>
+                    <button id="check" class="button" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+                <!-- <p id="message" style="color: red; display: none; font-weight: bold;">Vui lòng nhập số điện thoại của bạn!</p>
+                <p id="success" style="color: red; display: none; font-weight: bold;">Số điện thoại không tồn tại!</p> -->
+
+            </div>
+        </div>
+    </div>
+</main>
+<!-- javascript -->
+<script>
+function validatePhone1() {
+  var phone1 = document.getElementById("phone1").value;
+  document.getElementById("phoneError1").style.fontSize = "14px";
+  document.getElementById("phoneError1").style.color = "red";
+  document.getElementById("phoneError1").style.fontWeight= "bold";
+
+  if (phone1.length < 1) {
+    document.getElementById("phoneError1").innerText = "Vui lòng nhập số điện thoại của bạn!";
+  } else {
+    if (!validatePhoneNumber(phone1)) {
+      document.getElementById("phoneError1").innerText = "Số điện thoại không tồn tại!";
+      return false;
+    } else {
+      document.getElementById("phoneError1").innerText = "";
+
+    }
+  }
+}
+function validatePhone2() {
+  var phone2 = document.getElementById("phone2").value;
+  document.getElementById("phoneError2").style.fontSize = "14px";
+  document.getElementById("phoneError2").style.color = "red";
+  document.getElementById("phoneError2").style.fontWeight= "bold";
+
+  if (phone2.length < 1) {
+    document.getElementById("phoneError2").innerText = "Vui lòng nhập số điện thoại của bạn!";
+  } else {
+    if (!validatePhoneNumber(phone1)) {
+      document.getElementById("phoneError2").innerText = "Số điện thoại không tồn tại!";
+      return false;
+    } else {
+      document.getElementById("phoneError2").innerText = "";
+
+    }
+  }
+}
+function validatePhone3() {
+  var phone3 = document.getElementById("phone3").value;
+  document.getElementById("phoneError3").style.fontSize = "14px";
+  document.getElementById("phoneError3").style.color = "red";
+  document.getElementById("phoneError3").style.fontWeight= "bold";
+
+  if (phone3.length < 1) {
+    document.getElementById("phoneError3").innerText = "Vui lòng nhập số điện thoại của bạn!";
+  } else {
+    if (!validatePhoneNumber(phone1)) {
+      document.getElementById("phoneError3").innerText = "Số điện thoại không tồn tại!";
+      return false;
+    } else {
+      document.getElementById("phoneError3").innerText = "";
+
+    }
+  }
+}
+</script>
+

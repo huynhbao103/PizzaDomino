@@ -1,0 +1,312 @@
+﻿
+@{
+    Layout = "~/Views/Shared/Masterlayout1.cshtml";
+}
+
+<head>
+    <title>Giỏ Hàng - Domino's Pizza Việt Nam</title>
+    <link href="~/Content/CSS/Cart.css" rel="stylesheet" />
+</head>
+
+
+<!-- bodymap -->
+<main>
+    <div class="bodycart" id="cart-none">
+        <div class="img">
+
+            <img src="~/Content/images/img/empty-cart.svg" />
+        </div>
+        <div class="bodytext">
+            <div class="text">
+                <h3>Giỏ hàng trống</h3>
+            </div>
+            <div class="text1">
+                <p>Hiện tại bạn chưa có sản phẩm nào trong giỏ hàng. Hãy dạo một vòng Thực đơn để chọn sản phẩm yêu thích nhé, Domino's Pizza có nhiều món ngon lắm!</p>
+            </div>
+            <div class="next">
+                <a class="selectmenu" href="@Url.Action("Index", "Menu")">
+                    Tiếp tục chọn món
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- khi có sản phẩm -->
+    <div class="cartorder" id="cartorder">
+        <div class="row justify-content-center w-50" style="margin:auto">
+            <div class="col-12 col-md-10 ">
+                <h5 class="mb-3">Giỏ hàng của bạn</h5>
+            </div>
+            <ul class="list-unstyled container-fluid px-0">
+                <li class="all-product">
+                    <div class="col-12 col-md-7 mb-4 mb-md-0 flex-fit pr-2">
+                        <div class="order-detail row  flex-wrap: nowrap;">
+                            <div class="col-product-confirm-img col-lg-5">
+                                <div class="rounded-image">
+                                    <img src="https://img.dominos.vn/Pizza+Seoul+vien+khoai+lang+-+TIENG+ANH.jpg"
+                                         alt="Pizza Seoul Bò Xào Bulgogi Viền Khoai Lang Phô Mai - Seoul Beef Bulgogi Cheesy Sweet Potato Crust"
+                                         class="img-fluid rounded-xl">
+                                </div>
+                            </div>
+                            <div class="col-product-confirm-ctx col-lg-7 flex-fit">
+                                <div class="d-flex flex-column">
+                                    <div class="product">
+                                        <p class="text-product fw-bold">
+                                            Pizza Seoul Bò Xào Bulgogi Viền Khoai Lang Phô
+                                            Mai - Seoul Beef Bulgogi Cheesy Sweet Potato Crust
+                                        </p>
+                                        <ul class="list-unstyled nomal text-grey-dark mb-2">
+                                            <li class="mb-2">Cỡ 9 inch</li>
+                                            <li class="mb-2">Đế dày xốp</li>
+                                        </ul>
+                                    </div>
+                                    <div class="small mt-2 d-none d-md-block">
+                                        <a href="#"
+                                           class="text-armchair mr-3" data-bs-toggle="modal" data-bs-target="#idModal">Điều chỉnh</a>
+                                        <a href="#" class="cancel">Xóa</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="total-rease">
+                        <span class="font-weight-bold" style="margin-left:20px"><span class="tong">195,500</span>₫</span>
+                        <div class="addcart">
+                            <button type="button" class="buttondis" return false; onclick="decrease()">-</button>
+                            <span class="counter" id="counter">1</span>
+                            <button type="button" class="buttonadd" return false; onclick="increase()">+</button>
+
+
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="row justify-content-end no-gutters px-3 pb-4">
+                <div class="col-12 col-lg-6 offset-lg-2">
+                    <div class="w-100 mb-2">
+                        <div class="coupon">
+
+                            <form action="#">
+                                <div class="card-body mt-0 pt-0 w-100 px-0 pb-0 ">
+                                    <div class="w-100 bg-contain--annklg bg-img-sm-none">
+                                        <div class="row w-100 mx-0">
+                                            <div class="w-100">
+                                                <div class="input-group ">
+                                                    <input name="voucher"
+                                                           id="voucher" class="form-control"
+                                                           placeholder="Nhập mã khuyến mãi" value=""><button type="submit" class="btn-voucher"
+                                                                                                             style="border: none;">
+                                                        <span class="input-voucher">Áp dụng</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="cart_summary mb-2 ">
+                        <div class="row mb-1 cart_summary-total">
+                            <div class="col-8"><span class="text-secondary">Tổng</span></div>
+                            <div class="col-4 text-right"><span><span class="tong">0</span>₫</span></div>
+                        </div>
+                        <div class="row mb-1 cart_summary-promotion">
+                            <div class="col-8"><span class="text-secondary">Giảm K.Mãi</span></div>
+                            <div class="col-4 text-right"><span class="text-danger"><span>0₫</span></span></div>
+                        </div>
+                        <div class="row mb-1 cart_summary-voucher">
+                            <div class="col-8"><span class="text-secondary">Giảm Vouchers</span></div>
+                            <div class="col-4 text-right"><span class="text-danger"><span>0₫</span></span></div>
+                        </div>
+                        <div class="row mb-1 cart_summary-shipping">
+                            <div class="col-8"><span class="text-secondary">Phí giao hàng</span></div>
+                            <div class="col-4 text-right"><span class="text-danger"><span>0₫</span></span></div>
+                        </div>
+                    </div>
+                    <p class="text-danger"></p>
+                    <div class="d-flex justify-content-lg-end mt-1 mt-lg-0">
+                        <a class="btnThanhToan text-bg-danger" href="@Url.Action("Index", "Order")"> Thanh toán: <span class="tong">0</span>₫</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- footer -->
+<footer class="footer d-none d-lg-block">
+    <div class="body-footer ">
+        <div class="div1">
+            <div class="d-flex ">
+                <p class="mb-0">Kết nối Domino's Pizza Việt Nam:</p>
+                <a href="https://www.facebook.com/DominosPizzaVietnam/?brand_redir=207571100452" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/dominospizza_vietnam/" target="_blank">
+                    <i class="fab  fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="foot-main">
+            <a href="../HTML/index.html">
+                <img class="footer-logo" src="~/Content/images/img/domino.svg" alt="Domino's Pizza Logo">
+            </a>
+            <div class="hotline">
+                <div class="phone">
+                    <h3><i class="fas fa-phone fa-rotate-90"></i> Hotline Đặt Hàng</h3>
+                </div>
+                <div class="phone-number">1900 6099</div>
+            </div>
+            <div class="links">
+                <ul>
+                    <li> <a href="https://dominos.vn/blog-detail/nhung-mon-an-trong-ngay-sinh-nhat">Blog</a></li>
+                    <li><a href="https://tuyendung.vfbs.vn/">Tuyển dụng</a></li>
+                    <li><a href="https://dominos.vn/policy">Chính sách</a></li>
+                </ul>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="./menu.html">Thực đơn</a></li>
+                    <li><a href="#">Mã e-voucher</a></li>
+                    <li> <a href="./khuyenmai.html">Khuyến mãi</a></li>
+                </ul>
+            </div>
+            <div class="links">
+                <ul>
+                    <li> <a href="./phone.html">Theo dõi đơn hàng</a></li>
+                    <li><a href="./list_store.html">Danh sách cửa hàng</a></li>
+                </ul>
+            </div>
+            <div class="imgfooter">
+                <a href="http://online.gov.vn/Home/WebDetails/9616" target="_blank" rel="noreferrer">
+                    <img src="~/Content/images/payment/credentials.png" alt="credentials">
+
+                </a>
+            </div>
+        </div>
+        <div class="footer-end">
+            <div class="copyright">
+                © 2020 Domino's Pizza Vietnam | Privacy Policy
+            </div>
+            <div class="block">
+                <span class="button">Switch to English version</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- For small devices (tablets, 576px and up) -->
+<footer class="footer2 d-none d-sm-block d-lg-none">
+    <div class="body-footer ">
+        <div class="div1">
+            <div class="d-flex ">
+                <p class="mb-0">Kết nối Domino's Pizza Việt Nam:</p>
+                <a href="https://www.facebook.com/DominosPizzaVietnam/?brand_redir=207571100452" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/dominospizza_vietnam/" target="_blank">
+                    <i class="fab  fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="foot-main">
+            <a href="#dominos.html"> <img class="footer-logo" src="~/Content/images/img/domino.svg" alt="Domino's Pizza Logo"></a>
+            <div class="hotline">
+                <div class="phone">
+                    <h3><i class="fas fa-phone fa-rotate-90"></i> Hotline Đặt Hàng</h3>
+                </div>
+                <div class="phone-number">1900 6099</div>
+            </div>
+            <div class="imgfooter">
+                <a href="http://online.gov.vn/Home/WebDetails/9616" target="_blank" rel="noreferrer">
+                    <img src="~/Content/images/payment/credentials.png" alt="credentials">
+                </a>
+            </div>
+        </div>
+        <div class="footer-end">
+            <div class="copyright">
+                © 2020 Domino's Pizza Vietnam | Privacy Policy
+            </div>
+            <div class="block">
+                <span class="button">Switch to English version</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="/Content/javascript/main.js"></script>
+
+<script>
+
+    // Load giá trị count từ localStorage
+    var count = localStorage.getItem('globalState');
+
+    // Hàm để chuyển đổi hiển thị của cartnone và cartorder dựa trên giá trị của count
+    function toggleCartDisplay() {
+        var cartnone = document.getElementById('cart-none');
+        var cartorder = document.getElementById('cartorder');
+        var cartLength = localStorage.getItem('cartLength');
+
+
+        if (cartLength > 0) {
+            // Ẩn cartnone và hiển thị cartorder
+            cartnone.style.display = 'none';
+            cartorder.style.display = 'block';
+        } else {
+            // Hiển thị cartnone và ẩn cartorder
+            cartnone.style.display = 'block';
+            cartorder.style.display = 'none';
+        }
+    }
+
+    function loadFromLocalStorage() {
+
+        // Lấy giá trị từ localStorage và cập nhật tất cả các phần tử có class 'count'
+        var counts = document.getElementsByClassName("count");
+        var cartLength = localStorage.getItem('cartLength');
+        for (var i = 0; i < counts.length; i++) {
+            counts[i].innerHTML = cartLength;
+        }
+
+        // Lấy giá trị từ Local Storage
+        var total1 = localStorage.getItem('globalState');
+
+        // Chuyển đổi chuỗi JSON thành đối tượng JavaScript
+        var globalStateFromLocalStorage = JSON.parse(total1) || {};
+
+        // Lấy giá trị total1 từ đối tượng hoặc mặc định là 0 nếu không có
+        var total1Value = globalStateFromLocalStorage.total1 || 0;
+
+        // Lấy giá trị số lượng từ đối tượng hoặc mặc định là 1 nếu không có
+        var counter = globalStateFromLocalStorage.counter || 1;
+
+        // Thực hiện tính toán với số lượng
+        var totalPrice = total1Value * counter;
+
+        // Truy cập phần tử HTML bằng class hoặc id và gán giá trị
+        var elements = document.getElementsByClassName("tong");
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].innerText = totalPrice;
+        }
+    }
+
+    // Gọi hàm loadFromLocalStorage khi DOM có sẵn 
+    document.addEventListener("DOMContentLoaded", function () {
+        loadFromLocalStorage();
+        toggleCartDisplay();
+    });
+
+
+</script>
+
